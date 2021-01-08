@@ -1,41 +1,55 @@
 import React, { useEffect, useState } from "react";
-
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  Card,
-  CardContent,
-} from "@material-ui/core";
-import "./App.css";
+import axios from "axios";
+import { FormControl, Select, MenuItem } from "@material-ui/core";
+import "./App.scss";
 import InfoBox from "./components/InfoBox";
 import Map from "./components/Map";
+import RightSection from "./components/RightSection";
+import { sortData } from "./utils";
 
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("worldwide");
+  const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
-    //async => send a request, wait for it, do something with info
+    axios.get("https://disease.sh/v3/covid-19/all").then((response) => {
+      setCountryInfo(response.data);
+    });
+  }, []);
 
+  useEffect(() => {
     const getCountriesData = async () => {
-      await fetch(" https://disease.sh/v3/covid-19/countries")
-        .then((response) => response.json())
-        .then((data) => {
-          const countries = data.map((country) => ({
+      await axios("https://disease.sh/v3/covid-19/countries").then(
+        (response) => {
+          const countries = response.data.map((country) => ({
             name: country.country,
             value: country.countryInfo.iso2,
           }));
+
+          const sortedData = sortData(response.data);
+          setTableData(sortedData);
           setCountries(countries);
-        });
+        }
+      );
     };
     getCountriesData();
   }, []);
 
   const onCountryChange = async (event) => {
     const countryCode = event.target.value;
-    setCountry(countryCode);
+    const url =
+      countryCode === "worldwide"
+        ? "https://disease.sh/v3/covid-19/all"
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+
+    await axios(url).then((response) => {
+      setCountry(countryCode);
+      setCountryInfo(response.data);
+    });
   };
+
   return (
     <div className="app">
       <div className="app__left">
@@ -56,19 +70,25 @@ function App() {
         </div>
 
         <div className="app__stats">
-          <InfoBox title="Coronavirus Cases" cases="1987" total="2021" />
-          <InfoBox title="Recovered" cases="1987" total="2021" />
-          <InfoBox title="Deaths" cases="1987" total="2021" />
+          <InfoBox
+            title="Coronavirus Cases"
+            cases={countryInfo.todayCases}
+            total={countryInfo.cases}
+          />
+          <InfoBox
+            title="Recovered"
+            cases={countryInfo.todayRecovered}
+            total={countryInfo.recovered}
+          />
+          <InfoBox
+            title="Deaths"
+            cases={countryInfo.todayDeaths}
+            total={countryInfo.deaths}
+          />
         </div>
-
         <Map />
       </div>
-      <Card className="app__right">
-        <CardContent>
-          <h3>live Cases by Country</h3>
-          <h3>Worldwide new cases</h3>
-        </CardContent>
-      </Card>
+      <RightSection countries={tableData} />
     </div>
   );
 }
