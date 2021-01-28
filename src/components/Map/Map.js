@@ -3,10 +3,10 @@ import "./Map.scss";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import { showDataOnMap } from "./../../utils";
 
-const ChangeView = ({ center, zoom, countries, casesType }) => {
+const ChangeView = ({ center, zoom }) => {
   const map = useMap();
   map.setView(center, zoom);
-  showDataOnMap(countries, casesType);
+  // showDataOnMap(countries, casesType);
   return null;
 };
 
@@ -18,8 +18,8 @@ const Map = ({ countries, casesType, center, zoom }) => {
         <ChangeView
           center={center}
           zoom={zoom}
-          countries={countries}
-          casesType={casesType}
+          // countries={countries}
+          // casesType={casesType}
         />
 
         <TileLayer

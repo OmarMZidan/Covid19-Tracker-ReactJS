@@ -112,7 +112,7 @@ function App() {
           casesType={casesType}
         />
       </div>
-      <RightSection countries={tableData} />
+      <RightSection countries={tableData} casesType={casesType} />
     </div>
   );
 }
