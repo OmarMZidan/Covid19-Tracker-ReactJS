@@ -5,7 +5,7 @@ import Table from "./Table/Table";
 
 const RightSection = ({ countries, casesType }) => {
   return (
-    <Card className="app__right">
+    <Card className="home__right">
       <CardContent>
         <h3>live Cases by Country</h3>
         <Table countries={countries} />

@@ -82,7 +82,7 @@ const LineGraph = ({ casesType = "cases" }) => {
   }, [casesType]);
 
   return (
-    <div className="app__graph">
+    <div className="home__graph">
       {data?.length > 0 && (
         <Line
           data={{
