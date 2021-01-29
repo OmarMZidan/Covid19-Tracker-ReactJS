@@ -32,8 +32,9 @@ export const sortData = (data) => {
 };
 
 export const showDataOnMap = (data, casesType = "cases") =>
-  data.map((country) => (
+  data.map((country, index) => (
     <Circle
+      key={index}
       center={[country.countryInfo.lat, country.countryInfo.long]}
       color={casesTypeColors[casesType].hex}
       fillColor={casesTypeColors[casesType].hex}

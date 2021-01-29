@@ -57,7 +57,6 @@ function App() {
       setMapZoom(4);
       setCountry(countryCode);
       setCountryInfo(data);
-      // console.log(data.countryInfo.lat, data.countryInfo.long);
     });
   };
 
@@ -65,6 +64,7 @@ function App() {
     <div className="app">
       <div className="app__left">
         <div className="app__header">
+          {/* <FontAwesomeIcon icon={faUserNurse} /> */}
           <h1>Covid-19 Tracker </h1>
           <FormControl className="app__dropdown">
             <Select
@@ -73,8 +73,10 @@ function App() {
               onChange={onCountryChange}
             >
               <MenuItem value="worldwide">Worldwide</MenuItem>
-              {countries.map((country) => (
-                <MenuItem value={country.value}>{country.name}</MenuItem>
+              {countries.map((country, index) => (
+                <MenuItem key={index} value={country.value}>
+                  {country.name}
+                </MenuItem>
               ))}
             </Select>
           </FormControl>

@@ -55,7 +55,10 @@ const buildChartData = (data, casesType = "cases") => {
     if (lastDataPoint) {
       const newDataPoint = {
         x: date,
-        y: data[casesType][date] - lastDataPoint,
+        y:
+          casesType === "cases"
+            ? data[casesType][date] - lastDataPoint
+            : data[casesType][date],
       };
       chartData.push(newDataPoint);
     }
@@ -69,9 +72,8 @@ const LineGraph = ({ casesType = "cases" }) => {
   useEffect(() => {
     const getData = async () => {
       await axios
-        .get("https://disease.sh/v3/covid-19/historical/all?lastdays=7")
+        .get("https://disease.sh/v3/covid-19/historical/all?lastdays=all")
         .then((response) => {
-          console.log(response.data);
           let chartData = buildChartData(response.data, casesType);
           setData(chartData);
         });
