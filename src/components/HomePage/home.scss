@@ -2,39 +2,6 @@
   display: flex;
   justify-content: space-evenly;
   padding: 20px;
-  background-color: var(--grey-color);
-  h1 {
-    color: var(--main-color);
-  }
-
-  &__left {
-    flex: 0.9;
-  }
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  &__stats {
-    display: flex;
-    justify-content: space-between;
-  }
-  &__right {
-    display: flex;
-    flex-direction: column;
-
-    .MuiCardContent-root {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .home__graph {
-      flex-grow: 1;
-    }
-  }
 }
 
 @media (max-width: 990px) {

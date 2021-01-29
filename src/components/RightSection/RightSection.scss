@@ -1,0 +1,15 @@
+.home {
+  &__right {
+    display: flex;
+    flex-direction: column;
+
+    .MuiCardContent-root {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .home__graph {
+      flex-grow: 1;
+    }
+  }
+}

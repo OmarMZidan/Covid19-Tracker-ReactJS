@@ -1,9 +1,13 @@
 import { Card, CardContent } from "@material-ui/core";
-import React from "react";
-import LineGraph from "./LineGraph/LineGraph";
-import Table from "./Table/Table";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/CovidProvider";
+import LineGraph from "./../LineGraph/LineGraph";
+import Table from "./../Table/Table";
+import "./RightSection.scss";
 
-const RightSection = ({ countries, casesType }) => {
+const RightSection = ({ countries }) => {
+  const [casesType, setCasesType] = useContext(AuthContext);
+
   return (
     <Card className="home__right">
       <CardContent>

@@ -1,0 +1,18 @@
+.home {
+  &__left {
+    flex: 0.9;
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: space-between;
+  }
+}
