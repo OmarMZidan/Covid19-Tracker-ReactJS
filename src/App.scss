@@ -1,8 +1,9 @@
 :root {
-  --dark-color: #0a0a0c;
-  --dark2-color: #272b2e;
-  --grey-color: #585859;
-  --white-color: #fafafb;
+  --dark-color: #22252a;
+  --grey-color: #272b2e;
+  // --grey-color: #585859;
+  --white-color: #fcfdfe;
+  --red-color: #d2161f;
 }
 
 * {
@@ -11,3 +12,26 @@
 body {
   background-color: #f5f6fa;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--grey-color);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-color);
+}
+// font-family: 'Bebas Neue', cursive;
+// font-family: 'Cairo', sans-serif;

@@ -9,6 +9,23 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    h1 {
+      font-family: "Bebas Neue", cursive;
+      color: var(--white-color);
+      letter-spacing: 1px;
+      font-size: 24px;
+    }
+    .MuiSelect-root {
+      font-family: "Cairo", sans-serif;
+      font-weight: 700;
+      color: var(--white-color);
+    }
+    .MuiSelect-icon {
+      color: var(--white-color);
+    }
+    .MuiInput-underline:before {
+      border-bottom: 1px solid var(--white-color);
+    }
   }
 
   &__stats {

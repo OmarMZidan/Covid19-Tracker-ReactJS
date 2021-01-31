@@ -1,7 +1,28 @@
 .home {
   display: flex;
-  justify-content: space-evenly;
-  padding: 20px;
+  justify-content: space-between;
+  // padding: 20px 10px;
+  margin-left: 60px;
+  background-color: var(--grey-color);
+}
+.MuiMenu-paper {
+  top: 60px !important;
+
+  .MuiMenu-list {
+    background-color: var(--grey-color);
+    .MuiMenuItem-root {
+      color: var(--white-color);
+      font-size: 14px;
+      font-family: "Cairo", sans-serif;
+
+      .Mui-selected {
+        background-color: var(--dark-color);
+      }
+      .MuiListItem-button:hover {
+        background-color: var(--dark-color);
+      }
+    }
+  }
 }
 
 @media (max-width: 990px) {

@@ -41,9 +41,9 @@ const LeftSection = ({ countries, mapCountries }) => {
       <div className="home__header">
         {/* <FontAwesomeIcon icon={faUserNurse} /> */}
         {/* <img src={logo} alt="logo" /> */}
-        <h1>Stats Overview </h1>
+        <h1>Stats Overview</h1>
         <FormControl className="home__dropdown">
-          <Select variant="outlined" value={country} onChange={onCountryChange}>
+          <Select variant="standard" value={country} onChange={onCountryChange}>
             <MenuItem value="worldwide">Worldwide</MenuItem>
             {countries.map((country, index) => (
               <MenuItem key={index} value={country.value}>

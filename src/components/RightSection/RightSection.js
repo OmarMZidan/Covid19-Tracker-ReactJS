@@ -9,14 +9,14 @@ const RightSection = ({ countries }) => {
   const [casesType, setCasesType] = useContext(AuthContext);
 
   return (
-    <Card className="home__right">
-      <CardContent>
-        <h3>live Cases by Country</h3>
+    <div className="home__right">
+      <div className="home__casesList">
+        <h1>live Cases by Country</h1>
         <Table countries={countries} />
-        <h3>Worldwide new {casesType}</h3>
+        <h1>Worldwide new {casesType}</h1>
         <LineGraph casesType={casesType} />
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };
 

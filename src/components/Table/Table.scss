@@ -4,7 +4,7 @@
   height: 400px;
   -ms-overflow-style: none;
   color: #6a5d5d;
-  background-color: white;
+  background-color: var(--dark-color);
   display: flex;
   &::-webkit-scrollbar {
     display: none;
@@ -14,7 +14,7 @@
     justify-content: space-between;
   }
   tr:nth-of-type(odd) {
-    background-color: #f3f2f8;
+    background-color: var(--dark-color);
   }
   td {
     padding: 0.5rem;

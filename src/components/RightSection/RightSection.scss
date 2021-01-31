@@ -2,14 +2,21 @@
   &__right {
     display: flex;
     flex-direction: column;
-
-    .MuiCardContent-root {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
+    background-color: var(--dark-color);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    h1 {
+      font-family: "Bebas Neue", cursive;
+      color: var(--white-color);
+      letter-spacing: 1px;
+      font-size: 24px;
     }
-    .home__graph {
-      flex-grow: 1;
-    }
+  }
+  &__casesList {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  &__graph {
+    flex-grow: 1;
   }
 }
