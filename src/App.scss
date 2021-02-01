@@ -1,7 +1,7 @@
 :root {
   --dark-color: #22252a;
   --grey-color: #272b2e;
-  // --grey-color: #585859;
+  --grey2-color: #585859;
   --white-color: #fcfdfe;
   --red-color: #d2161f;
 }
@@ -11,6 +11,7 @@
 }
 body {
   background-color: #f5f6fa;
+  font-family: "Cairo", sans-serif;
 }
 
 ::-webkit-scrollbar {

@@ -18,9 +18,11 @@ function Home() {
     const getCountriesData = async () => {
       await axios("https://disease.sh/v3/covid-19/countries").then(
         (response) => {
+          console.log(response.data);
           const countries = response.data.map((country) => ({
             name: country.country,
             value: country.countryInfo.iso2,
+            flag: country.countryInfo.flag,
           }));
 
           const sortedData = sortData(response.data);

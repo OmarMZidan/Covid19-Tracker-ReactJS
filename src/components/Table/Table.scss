@@ -1,7 +1,7 @@
 .table {
-  margin-top: 20px;
+  margin-top: 10px;
   overflow: scroll;
-  height: 400px;
+  height: 250px;
   -ms-overflow-style: none;
   color: #6a5d5d;
   background-color: var(--dark-color);
@@ -9,14 +9,32 @@
   &::-webkit-scrollbar {
     display: none;
   }
-  tr {
-    display: flex;
-    justify-content: space-between;
+
+  tbody {
+    width: 100%;
+    tr {
+      display: flex;
+      justify-content: space-between;
+    }
+    tr:nth-of-type(odd) {
+      background-color: var(--dark-color);
+    }
+    td {
+      padding: 0.1rem;
+    }
   }
-  tr:nth-of-type(odd) {
-    background-color: var(--dark-color);
+
+  &__flag {
+    height: 15px;
+    width: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
   }
-  td {
-    padding: 0.5rem;
+  &__number,
+  &__country {
+    font-family: "Cairo", sans-serif;
+    color: var(--white-color);
+    font-size: 14px;
   }
 }

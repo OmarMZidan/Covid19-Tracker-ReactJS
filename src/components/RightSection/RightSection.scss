@@ -4,11 +4,15 @@
     flex-direction: column;
     background-color: var(--dark-color);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 0 15px 15px 15px;
+    // padding-top: 25px;
+
     h1 {
       font-family: "Bebas Neue", cursive;
       color: var(--white-color);
       letter-spacing: 1px;
       font-size: 24px;
+      margin-top: 25px;
     }
   }
   &__casesList {
@@ -18,5 +22,6 @@
   }
   &__graph {
     flex-grow: 1;
+    margin-top: 10px;
   }
 }
