@@ -6,6 +6,13 @@ import Map from "../Map/Map";
 import axios from "axios";
 import { prettyPrintStat } from "../../utils";
 import { AuthContext } from "../../context/CovidProvider";
+import {
+  faVirus,
+  faHeadSideCough,
+  faHandHoldingMedical,
+  faSkull,
+  faFlag,
+} from "@fortawesome/free-solid-svg-icons";
 
 const LeftSection = ({ countries, mapCountries }) => {
   const [mapCenter, setMapCenter] = useState({ lat: 27, lng: 30 });
@@ -29,7 +36,12 @@ const LeftSection = ({ countries, mapCountries }) => {
 
     await axios(url).then((response) => {
       let data = response.data;
-      setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+      console.log(data);
+      if (countryCode === "worldwide") {
+        setMapCenter({ lat: 27, lng: 30 });
+      } else {
+        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+      }
       setMapZoom(4);
       setCountry(countryCode);
       setCountryInfo(data);
@@ -39,8 +51,6 @@ const LeftSection = ({ countries, mapCountries }) => {
   return (
     <div className="home__left">
       <div className="home__header">
-        {/* <FontAwesomeIcon icon={faUserNurse} /> */}
-        {/* <img src={logo} alt="logo" /> */}
         <h1>Stats Overview</h1>
         <FormControl className="home__dropdown">
           <Select variant="standard" value={country} onChange={onCountryChange}>
@@ -56,28 +66,51 @@ const LeftSection = ({ countries, mapCountries }) => {
 
       <div className="home__stats">
         <InfoBox
-          title="Coronavirus Cases"
+          color="var(--red-color)"
+          icon={faVirus}
+          title="Infected"
           onClick={(e) => setCasesType("cases")}
-          isRed
-          active={casesType === "cases"}
-          cases={prettyPrintStat(countryInfo.todayCases)}
-          total={prettyPrintStat(countryInfo.cases)}
+          number={prettyPrintStat(countryInfo.cases)}
+          today={prettyPrintStat(countryInfo.todayCases)}
         />
         <InfoBox
+          color="var(--gold-color)"
+          icon={faHeadSideCough}
+          title="Active"
+          number={prettyPrintStat(countryInfo.active)}
+        />
+        <InfoBox
+          color="var(--turquoise-color)"
+          icon={faHandHoldingMedical}
           title="Recovered"
           onClick={(e) => setCasesType("recovered")}
-          active={casesType === "recovered"}
-          cases={prettyPrintStat(countryInfo.todayRecovered)}
-          total={prettyPrintStat(countryInfo.recovered)}
+          number={prettyPrintStat(countryInfo.recovered)}
+          today={prettyPrintStat(countryInfo.todayRecovered)}
         />
         <InfoBox
+          color="var(--grey2-color)"
+          icon={faSkull}
           title="Deaths"
           onClick={(e) => setCasesType("deaths")}
-          isRed
-          active={casesType === "deaths"}
-          cases={prettyPrintStat(countryInfo.todayDeaths)}
-          total={prettyPrintStat(countryInfo.deaths)}
+          number={prettyPrintStat(countryInfo.deaths)}
+          today={prettyPrintStat(countryInfo.todayDeaths)}
         />
+        {country === "worldwide" && (
+          <InfoBox
+            color="var(--purple-color)"
+            icon={faFlag}
+            title="Countries"
+            number={countryInfo.affectedCountries}
+          />
+        )}
+        {country !== "worldwide" && (
+          <InfoBox
+            color="var(--purple-color)"
+            icon={faFlag}
+            title="Population"
+            number={prettyPrintStat(countryInfo.population)}
+          />
+        )}
       </div>
       <Map
         center={mapCenter}

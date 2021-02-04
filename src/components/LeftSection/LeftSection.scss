@@ -3,6 +3,9 @@
     flex: 0.9;
     width: 100%;
     padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
   }
 
   &__header {
@@ -32,5 +35,6 @@
   &__stats {
     display: flex;
     justify-content: space-between;
+    // margin: 20px 0;
   }
 }

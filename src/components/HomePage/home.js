@@ -12,13 +12,10 @@ function Home() {
   const [tableData, setTableData] = useState([]);
   const [mapCountries, setMapCountries] = useState([]);
 
-  // const [casesType, setCasesType] = useState("cases");
-
   useEffect(() => {
     const getCountriesData = async () => {
       await axios("https://disease.sh/v3/covid-19/countries").then(
         (response) => {
-          console.log(response.data);
           const countries = response.data.map((country) => ({
             name: country.country,
             value: country.countryInfo.iso2,

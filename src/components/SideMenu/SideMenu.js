@@ -10,18 +10,18 @@ import logo from "./../../images/logo.png";
 const SideMenu = () => {
   return (
     <div className="side-menu">
-      <a className="side-menu__logo">
+      <a href="/" className="side-menu__logo">
         <img src={logo} alt="logo" />
       </a>
       <ul className="side-menu__list">
         <li>
-          <a href="#">
+          <a href="/">
             <FontAwesomeIcon icon={faChartLine} />
             Stats
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="/">
             <FontAwesomeIcon icon={faPlaneDeparture} />
             Travel Alert
           </a>

@@ -3,7 +3,6 @@ import "./Table.scss";
 import numeral from "numeral";
 
 const Table = ({ countries }) => {
-  console.log(countries);
   return (
     <table className="table">
       <tbody>
