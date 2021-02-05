@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Home.scss";
 import RightSection from "../RightSection/RightSection";
-import { sortData } from "../../utils";
 import "leaflet/dist/leaflet.css";
-// import logo from "./../../images/logo.png";
 import LeftSection from "../LeftSection/LeftSection";
 
 function Home() {
@@ -22,8 +20,8 @@ function Home() {
             flag: country.countryInfo.flag,
           }));
 
-          const sortedData = sortData(response.data);
-          setTableData(sortedData);
+          // const sortedData = sortData();
+          setTableData(response.data);
           setCountries(countries);
           setMapCountries(response.data);
         }

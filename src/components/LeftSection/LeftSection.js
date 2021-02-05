@@ -17,7 +17,7 @@ import {
 const LeftSection = ({ countries, mapCountries }) => {
   const [mapCenter, setMapCenter] = useState({ lat: 27, lng: 30 });
   const [country, setCountry] = useState("worldwide");
-  const [mapZoom, setMapZoom] = useState(3);
+  const [mapZoom, setMapZoom] = useState(2);
   const [countryInfo, setCountryInfo] = useState({});
   const [casesType, setCasesType] = useContext(AuthContext);
 
@@ -39,10 +39,11 @@ const LeftSection = ({ countries, mapCountries }) => {
       console.log(data);
       if (countryCode === "worldwide") {
         setMapCenter({ lat: 27, lng: 30 });
+        setMapZoom(2);
       } else {
         setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        setMapZoom(5);
       }
-      setMapZoom(4);
       setCountry(countryCode);
       setCountryInfo(data);
     });

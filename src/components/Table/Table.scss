@@ -1,3 +1,28 @@
+.tabs {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  font-family: "Cairo", sans-serif;
+  font-size: 14px;
+  border: 1px solid var(--grey2-color);
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 2px;
+  font-weight: 600;
+
+  &__btn {
+    text-align: center;
+    width: 33.3%;
+    background-color: var(--grey-color);
+    color: var(--white-color);
+    padding: 5px 0;
+    cursor: pointer;
+    &--active {
+      background-color: var(--dark-color);
+      border-bottom: 2px solid var(--red-color);
+    }
+  }
+}
 .table {
   margin-top: 10px;
   overflow: scroll;
@@ -21,6 +46,11 @@
     }
     td {
       padding: 0.1rem;
+    }
+    sup {
+      color: var(--gold-color);
+      font-size: 10px;
+      letter-spacing: 0.5px;
     }
   }
 
