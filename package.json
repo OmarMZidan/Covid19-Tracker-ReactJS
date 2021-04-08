@@ -1,5 +1,6 @@
 {
   "name": "covid19-tracker",
+  "homepage": "https://OmarMZidan.github.io/Covid19-Tracker-ReactJS/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,6 +15,7 @@
     "@testing-library/user-event": "^12.6.0",
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",
+    "gh-pages": "^3.1.0",
     "leaflet": "^1.6.0",
     "node-sass": "^4.14.1",
     "numeral": "^2.0.6",
@@ -26,6 +28,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
